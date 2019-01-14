@@ -1,4 +1,5 @@
-import pygame
+import sys, pygame
+from pygame.locals import *
 import random
 
 pygame.init()
@@ -11,15 +12,17 @@ spr_ball = pygame.image.load("assets/soccer.png")
 spr_ball = pygame.transform.scale(spr_ball, (64,64))
 rect_ball = spr_ball.get_rect()
 
-
+x,y = pygame.mouse.get_pos()
 #Game Loop
-terminado = False
-while not terminado:
+while True:
     #gestionar los eventos del usuario
     for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                x,y = pygame.mouse.get_pos()
         if event.type == pygame.QUIT:
-            terminado = True
-            break
+            pygame.quit()
+            sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
                 rect_ball = rect_ball.move([10,0])
@@ -48,6 +51,7 @@ while not terminado:
     if rect_ball.x <= 0:
         velocidad[0] = random.randint(1,5)"""
     #renderizar la interfaz grafica
-    screen.fill((0,0,0))
-    screen.blit(spr_ball, rect_ball)
+    screen.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
+    screen.blit(spr_ball,((x-32),(y-32)))
     pygame.display.flip()
+
