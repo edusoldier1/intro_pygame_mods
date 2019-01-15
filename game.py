@@ -12,7 +12,7 @@ spr_ball = pygame.image.load("assets/soccer.png")
 spr_ball = pygame.transform.scale(spr_ball, (64,64))
 rect_ball = spr_ball.get_rect()
 
-print (spr_ball.get_height())
+color = pygame.Color(120,100,60)
 
 #Game Loop
 while True:
@@ -54,5 +54,7 @@ while True:
     #renderizar la interfaz grafica
     screen.fill((0,0,0))
     screen.blit(spr_ball,((x-spr_ball.get_width()/2),(y-spr_ball.get_height()/2)))
+    pygame.draw.line(screen,color,(60,60),(x,y))
+    pygame.draw.circle(screen,(102,120,150),(x,y),32,5)
     pygame.display.flip()
 
