@@ -21,11 +21,11 @@ while True:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_UP]:
         y -= 5
-    elif keys[pygame.K_DOWN]:
+    if keys[pygame.K_DOWN]:
         y += 5
-    elif keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT]:
         x -= 5
-    elif keys[pygame.K_RIGHT]:
+    if keys[pygame.K_RIGHT]:
         x += 5
     #x,y = pygame.mouse.get_pos()
     #gestionar los eventos del usuario
