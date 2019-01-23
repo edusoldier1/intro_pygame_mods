@@ -19,14 +19,14 @@ x,y = (50,30)
 #Game Loop
 while True:
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_UP]:
-        y -= 5
-    if keys[pygame.K_DOWN]:
-        y += 5
-    if keys[pygame.K_LEFT]:
-        x -= 5
-    if keys[pygame.K_RIGHT]:
-        x += 5
+    if keys[pygame.K_UP] and y > 0:
+        y -= 2
+    if keys[pygame.K_DOWN] and y < 536:
+        y += 2
+    if keys[pygame.K_LEFT] and x > 0:
+        x -= 2
+    if keys[pygame.K_RIGHT] and x < 736:
+        x += 2
     #x,y = pygame.mouse.get_pos()
     #gestionar los eventos del usuario
     for event in pygame.event.get():
